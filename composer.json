@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "phpBB3.1 extension that shows the length of time your board has been online. in Years, Months and Days.",
 	"homepage": "http://3d-i.github.io/online-since",
-	"version": "1.0.0",
-	"time": "2015-09-09",
+	"version": "1.0.1",
+	"time": "2015-09-18",
 	"license": "GPL-2.0",
 	"authors": [
 		{

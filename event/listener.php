@@ -1,7 +1,8 @@
 <?php
 /**
 *
-* @copyright (c) 2015 Kirk http://reyno41.bplaced.net/phpbb
+* @package phpBB Extension - Online Since 1.0.1-RC2
+* @copyright (c) 2015 3Di (Marco T.)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -27,25 +28,16 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\template\template */
 	protected $template;
 
-	/* @var \phpbb\request\request */
-	protected $request;
-
 	/* @var \phpbb\user */
 	protected $user;
-
-	/* @var \phpbb\path_helper */
-	protected $helper;
-
 
 	/**
 		* Constructor
 		*
-		* @param \phpbb\auth\auth			auth			Authentication object
+		* @param \phpbb\auth\auth			$auth			Authentication object
 		* @param \phpbb\config\config		$config			Config Object
 		* @param \phpbb\template\template	$template		Template object
-		* @param \phpbb\request\request		$request		Request object
 		* @param \phpbb\user				$user			User Object
-		* @param \phpbb\path_helper			$path_helper	Controller helper object
 		* @access public
 		*/
 	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
@@ -67,10 +59,12 @@ class listener implements EventSubscriberInterface
 	public function load_language_on_setup($event)
 	{
 		$lang_set_ext = $event['lang_set_ext'];
+
 		$lang_set_ext[] = array(
 			'ext_name' => 'threedi/online_since',
 			'lang_set' => 'common',
 		);
+
 		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
@@ -96,12 +90,12 @@ class listener implements EventSubscriberInterface
 
 		$is_leap = ((($year2)%4 == 0 && ($year2)%100 != 0 || ($year2)%400 == 0) ? 1 : 0);
 
-		/* Do obvious corrections (days before months!)
-		*
-		* This is a loop in case the previous month is
-		* February, and days < -28.
-		*/
-
+		/*
+			* Do obvious corrections (days before months!)
+			*
+			* This is a loop in case the previous month is
+			* February, and days < -28.
+			*/
 		$prev_month_days = $days_of_month[$is_leap][$month2 - 1];
 
 		while ($diff_day < 0)
@@ -122,7 +116,7 @@ class listener implements EventSubscriberInterface
 			$diff_month += 12;
 		}
 
-			// tertiary operators for single/multiples lang output
+			/* tertiary operators for single/multiples lang output */
 			$lang_year = ($diff_year == 1) ? $this->user->lang['ONLINE_YEAR'] : $this->user->lang['ONLINE_YEARS'];
 			$lang_month = ($diff_month == 1) ? $this->user->lang['ONLINE_MONTH'] : $this->user->lang['ONLINE_MONTHS'];
 			$lang_day = ($diff_day == 1) ? $this->user->lang['ONLINE_DAY'] : $this->user->lang['ONLINE_DAYS'];
