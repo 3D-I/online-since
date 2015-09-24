@@ -11,20 +11,20 @@ Build Status: [![Build Status](https://travis-ci.org/3D-I/online-since.svg)](htt
 ## Installation
 
 ### 1. clone
-Clone (or download and move) the repository into the folder ext/threedi/online_since
+Clone (or download and move) the repository into the folder ext/threedi/onlinesince
 (create it if not already exists):
 
 ```
 cd phpBB3
-git clone https://github.com/3D-I/online-since.git ext/threedi/online_since/
+git clone https://github.com/3D-I/online-since.git ext/threedi/onlinesince/
 ```
 
 ### 2. activate
-Go to admin panel -> tab Customise -> Manage extensions -> enable online_since
+Go to admin panel -> tab Customise -> Manage extensions -> enable Online Since 
 
 ## Update instructions:
-1. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > online_since: disable
-2. Delete all files of the extension from ext/3D-I/online_since
+1. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > Online Since : disable
+2. Delete all files of the extension from ext/threedi/onlinesince
 3. Upload all the new files to the same locations
-4. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > online_since: enable
+4. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > Online Since : enable
 5. Purge the board cache

@@ -7,7 +7,7 @@
 *
 */
 
-namespace threedi\online_since\event;
+namespace threedi\onlinesince\event;
 
 /**
 * @ignore
@@ -52,7 +52,7 @@ class listener implements EventSubscriberInterface
 	{
 		return array(
 			'core.user_setup'		=> 'load_language_on_setup',
-			'core.page_footer'		=> 'display_online_since',
+			'core.page_footer'		=> 'display_onlinesince',
 		);
 	}
 
@@ -61,14 +61,14 @@ class listener implements EventSubscriberInterface
 		$lang_set_ext = $event['lang_set_ext'];
 
 		$lang_set_ext[] = array(
-			'ext_name' => 'threedi/online_since',
+			'ext_name' => 'threedi/onlinesince',
 			'lang_set' => 'common',
 		);
 
 		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
-	public function display_online_since($event)
+	public function display_onlinesince($event)
 	{
 		$year = date("Y", time());
 		$days_of_month = array(

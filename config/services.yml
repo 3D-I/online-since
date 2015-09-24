@@ -1,6 +1,6 @@
 services:
-    threedi.online_since.listener:
-        class: threedi\online_since\event\listener
+    threedi.onlinesince.listener:
+        class: threedi\onlinesince\event\listener
         arguments:
             - @auth
             - @config
