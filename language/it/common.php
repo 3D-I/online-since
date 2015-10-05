@@ -38,24 +38,15 @@ $lang = array_merge($lang, array(
 	'ONLINE_SINCE'		=> ' per ',
 	'ONLINE_TITLE'		=> 'Tempo trascorso dalla Fondazione',
 	'ONLINE_YEAR'	=> array(
-		0	=> '<b>%d</b> Anni ',
 		1	=> '<b>%d</b> Anno ',
 		2	=> '<b>%d</b> Anni ',
-		3	=> '<b>%d</b> Anno ',
-		4	=> '<b>%d</b> Anni ',
 	),
 	'ONLINE_MONTH'	=> array(
-		0	=> '<b>%d</b> Mesi ',
 		1	=> '<b>%d</b> Mese ',
 		2	=> '<b>%d</b> Mesi ',
-		3	=> '<b>%d</b> Mese ',
-		4	=> '<b>%d</b> Mesi ',
 	),
 	'ONLINE_DAY'	=> array(
-		0	=> '<b>%d</b> Giorni',
 		1   => '<b>%d</b> Giorno',
 		2   => '<b>%d</b> Giorni',
-		3   => '<b>%d</b> Giorno',
-		4   => '<b>%d</b> Giorni',
-
+	)
 ));

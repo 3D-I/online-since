@@ -38,24 +38,15 @@ $lang = array_merge($lang, array(
 	'ONLINE_SINCE'		=> ' for ',
 	'ONLINE_TITLE'		=> 'Time spent by the foundation',
 	'ONLINE_YEAR'	=> array(
-		0	=> '<b>%d</b> Years ',
 		1	=> '<b>%d</b> Year ',
 		2	=> '<b>%d</b> Years ',
-		3	=> '<b>%d</b> Year ',
-		4	=> '<b>%d</b> Years ',
 	),
 	'ONLINE_MONTH'	=> array(
-		0	=> '<b>%d</b> Months ',
 		1	=> '<b>%d</b> Month ',
 		2	=> '<b>%d</b> Months ',
-		3	=> '<b>%d</b> Month ',
-		4	=> '<b>%d</b> Months ',
 	),
 	'ONLINE_DAY'	=> array(
-		0	=> '<b>%d</b> Days',
 		1   => '<b>%d</b> Day',
 		2   => '<b>%d</b> Days',
-		3   => '<b>%d</b> Day',
-		4   => '<b>%d</b> Days',
 	)
 ));
