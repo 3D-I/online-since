@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package phpBB Extension - Online Since 1.0.1-RC2
+* @package phpBB Extension - Online Since 1.0.1
 * @copyright (c) 2015 3Di (Marco T.)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -116,19 +116,15 @@ class listener implements EventSubscriberInterface
 			$diff_month += 12;
 		}
 
-			/* tertiary operators for single/multiples lang output */
-			$lang_year = ($diff_year == 1) ? $this->user->lang['ONLINE_YEAR'] : $this->user->lang['ONLINE_YEARS'];
-			$lang_month = ($diff_month == 1) ? $this->user->lang['ONLINE_MONTH'] : $this->user->lang['ONLINE_MONTHS'];
-			$lang_day = ($diff_day == 1) ? $this->user->lang['ONLINE_DAY'] : $this->user->lang['ONLINE_DAYS'];
+		$online_for = ($this->user->lang('ONLINE_YEAR', (int) $diff_year) .  $this->user->lang('ONLINE_MONTH', (int) $diff_month) . $this->user->lang('ONLINE_DAY', (int) $diff_day));
 
-			$online_for = "<b>$diff_year</b> $lang_year <b>$diff_month</b> $lang_month <b>$diff_day</b> $lang_day";
-			$start_date = $this->user->format_date($this->config['board_startdate'], 'Y m d');
+		$start_date = $this->user->format_date($this->config['board_startdate'], 'd m Y');
 
-			$this->template->assign_vars(array(
-			'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
-			'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
-			'L_BOARD_STARTS'			=> $start_date,
-			'L_ONLINE_FOR'				=> $online_for,
+		$this->template->assign_vars(array(
+		'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
+		'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
+		'L_BOARD_STARTS'			=> $start_date,
+		'L_ONLINE_FOR'				=> $online_for,
 		));
 	}
 }
