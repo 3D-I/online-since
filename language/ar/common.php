@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* Online Since [Arabic]
+* Online Since 1.0.1 [Arabic]
 *
 * @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -39,15 +39,15 @@ $lang = array_merge($lang, array(
 	'ONLINE_SINCE'		=> ' لـ ',
 	'ONLINE_TITLE'		=> 'تاريخ تأسيس المنتدى',
 	'ONLINE_YEAR'	=> array(
-		1	=> '<b>%d</b> سنة ',
-		2	=> '<b>%d</b> سنوات ',
+		1	=> '<strong>%d</strong> سنة ',
+		2	=> '<strong>%d</strong> سنوات ',
 	),
 	'ONLINE_MONTH'	=> array(
-		1	=> '<b>%d</b> شهر ',
-		2	=> '<b>%d</b> شهور ',
+		1	=> '<strong>%d</strong> شهر ',
+		2	=> '<strong>%d</strong> شهور ',
 	),
 	'ONLINE_DAY'	=> array(
-		1   => '<b>%d</b> يوم',
-		2   => '<b>%d</b> أيام',
+		1   => '<strong>%d</strong> يوم',
+		2   => '<strong>%d</strong> أيام',
 	)
 ));
