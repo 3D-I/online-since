@@ -26,13 +26,27 @@
 			"role": "Contributor"
 		}
 	],
-	"require": {
+	"require":
+	{
 		"php": ">=5.3.3"
 	},
-	"extra": {
-		"display-name": "Online Since",
-			"soft-require": {
-				"phpbb/phpbb": ">=3.1.0-b3,<3.2.*@dev"
+	"require-dev":
+	{
+		"phpbb/epv": "dev-master"
+	},
+	"extra":
+	{
+		"display-name":
+			"Online Since",
+		"soft-require":
+		{
+			"phpbb/phpbb": ">=3.1.0-b3,<3.2.*@dev"
+		},
+		"version-check":
+		{
+			"host": "www.phpbb.com",
+			"directory": "/customise/db/extension/online_since",
+			"filename": "version_check"
 		}
 	}
 }

@@ -2,7 +2,8 @@
 /**
 *
 * @package phpBB Extension - Online Since 1.0.1
-* @copyright (c) 2015 3Di (Marco T.)
+*
+* @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
