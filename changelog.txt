@@ -1,0 +1,11 @@
+Changelog
+
+RC1 to RC2 (11-10-2015)
+
+ - Plural Rules ready
+ - Italian language (3Di)
+ - Arabic language (alhitary)
+ - Template moved to prosilver specific
+ - Version-check ready (once validated)
+ - Migrations ready (version)
+ - Code cleaning

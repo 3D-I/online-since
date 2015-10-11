@@ -21,7 +21,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\auth\auth */
-	protected $auth;
+	//protected $auth; // not yet in use
 
 	/** @var \phpbb\config\config */
 	protected $config;
@@ -35,15 +35,15 @@ class listener implements EventSubscriberInterface
 	/**
 		* Constructor
 		*
-		* @param \phpbb\auth\auth			$auth			Authentication object
+		* @param \phpbb\auth\auth			$auth			Authentication object // not yet in use
 		* @param \phpbb\config\config		$config			Config Object
 		* @param \phpbb\template\template	$template		Template object
 		* @param \phpbb\user				$user			User Object
 		* @access public
 		*/
-	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
+	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
 	{
-			$this->auth = $auth;
+			//$this->auth = $auth; // not yet in use
 			$this->config = $config;
 			$this->template = $template;
 			$this->user = $user;
