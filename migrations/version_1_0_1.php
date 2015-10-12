@@ -11,6 +11,11 @@ namespace threedi\onlinesince\migrations;
 
 class version_1_0_1 extends \phpbb\db\migration\migration
 {
+	static public function depends_on()
+	{
+		return array('\phpbb\db\migration\data\v310\dev');
+	}
+
 	public function update_data()
 	{
 		return array(
@@ -20,8 +25,12 @@ class version_1_0_1 extends \phpbb\db\migration\migration
 
 	public function revert_data()
 	{
+		/* Seems not to be necessary while the config.add tool it's in use, testing
+
 		return array(
 			array('config.remove', array('onlinesince_version')),
 		);
+
+		*/
 	}
 }
