@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package phpBB Extension - Online Since 1.0.1
+* @package phpBB Extension - Online Since 1.0.2
 *
 * @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
@@ -21,7 +21,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\auth\auth */
-	//protected $auth; // not yet in use
+	protected $auth;
 
 	/** @var \phpbb\config\config */
 	protected $config;
@@ -35,15 +35,15 @@ class listener implements EventSubscriberInterface
 	/**
 		* Constructor
 		*
-		* @param \phpbb\auth\auth			$auth			Authentication object // not yet in use
+		* @param \phpbb\auth\auth			$auth			Authentication object
 		* @param \phpbb\config\config		$config			Config Object
 		* @param \phpbb\template\template	$template		Template object
 		* @param \phpbb\user				$user			User Object
 		* @access public
 		*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
+	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
 	{
-			//$this->auth = $auth; // not yet in use
+			$this->auth = $auth;
 			$this->config = $config;
 			$this->template = $template;
 			$this->user = $user;
@@ -54,9 +54,25 @@ class listener implements EventSubscriberInterface
 		return array(
 			'core.user_setup'		=> 'load_language_on_setup',
 			'core.page_footer'		=> 'display_onlinesince',
+			'core.permissions'		=> 'permissions',
 		);
 	}
 
+	public function permissions($event)
+	{
+		$permissions = $event['permissions'];
+
+		$permissions += array(
+			'u_allow_onlinesince' => array(
+				'lang'	=> 'ACL_U_ALLOW_ONLINESINCE',
+				'cat'	=> 'misc'
+			),
+		);
+
+		$event['permissions'] = $permissions;
+	}
+
+	/* Permissions language file is automatically loaded ;) */
 	public function load_language_on_setup($event)
 	{
 		$lang_set_ext = $event['lang_set_ext'];
@@ -122,6 +138,7 @@ class listener implements EventSubscriberInterface
 		$start_date = $this->user->format_date($this->config['board_startdate'], 'd m Y');
 
 		$this->template->assign_vars(array(
+		'U_ALLOW_ONLINESINCE'		=> ($this->auth->acl_get('u_allow_onlinesince')) ? true : false,
 		'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
 		'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
 		'L_BOARD_STARTS'			=> $start_date,

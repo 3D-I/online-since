@@ -1,5 +1,10 @@
 Changelog
 
+RC1 to RC2 (12-10-2015)
+
+ - Permissions ready (being tested though)
+
+
 RC1 to RC2 (11-10-2015)
 
  - Plural Rules ready
@@ -8,4 +13,5 @@ RC1 to RC2 (11-10-2015)
  - Template moved to prosilver specific
  - Version-check ready (once validated)
  - Migrations ready (version)
+ - Namespace changed
  - Code cleaning
