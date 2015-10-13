@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package phpBB Extension - Online Since 1.0.2
+* @package phpBB Extension - Online Since 1.0.2 - 13-10-2015
 *
 * @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
@@ -14,6 +14,7 @@ namespace threedi\onlinesince\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use threedi\onlinesince\ext;
 
 /**
 * Event listener
@@ -133,16 +134,18 @@ class listener implements EventSubscriberInterface
 			$diff_month += 12;
 		}
 
+		/* Plural Rules here */
 		$online_for = ($this->user->lang('ONLINE_YEAR', (int) $diff_year) .  $this->user->lang('ONLINE_MONTH', (int) $diff_month) . $this->user->lang('ONLINE_DAY', (int) $diff_day));
 
 		$start_date = $this->user->format_date($this->config['board_startdate'], 'd m Y');
 
 		$this->template->assign_vars(array(
+		'VERSION_ONLINESINCE'		=> ext::VERSION_ONLINESINCE,
 		'U_ALLOW_ONLINESINCE'		=> ($this->auth->acl_get('u_allow_onlinesince')) ? true : false,
 		'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
 		'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
-		'L_BOARD_STARTS'			=> $start_date,
-		'L_ONLINE_FOR'				=> $online_for,
+		'L_BOARD_STARTS'			=> (' ' . $start_date . ' -'),
+		'L_ONLINE_FOR'				=> (' ' . $online_for),
 		));
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* Online Since 1.0.1 [Italiano]
+* Online Since 1.0.2 [Italiano]
 *
 * @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -34,9 +34,9 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'ONLINE_START'		=> 'Online dal ',
-	'ONLINE_SINCE'		=> ' per ',
-	'ONLINE_TITLE'		=> 'Tempo trascorso dalla Fondazione',
+	'ONLINE_START'		=> 'Data di partenza',
+	'ONLINE_SINCE'		=> ' Tempo trascorso',
+	'ONLINE_TITLE'		=> 'Online since ',
 	'ONLINE_YEAR'	=> array(
 		1	=> '<strong>%d</strong> Anno ',
 		2	=> '<strong>%d</strong> Anni ',
