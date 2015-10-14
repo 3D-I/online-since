@@ -15,4 +15,13 @@ class version_1_0_1 extends \phpbb\db\migration\migration
 	{
 		return array('\phpbb\db\migration\data\v310\dev');
 	}
+/*
+	public function update_data()
+	{
+		return array(
+			array('config.add', array('onlinesince_version', '1.0.1')),
+		);
+	}
+*/
+
 }

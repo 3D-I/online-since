@@ -31,5 +31,6 @@ class ext extends \phpbb\extension\base
 	{
 		$config = $this->container->get('config');
 		return phpbb_version_compare($config['version'], '3.1.3', '>=');
+		//return phpbb_version_compare($config['onlinesince_version'], '1.0.4', '>=');
 	}
 }

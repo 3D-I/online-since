@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package phpBB Extension - Online Since 1.0.2 - 13-10-2015
+* @package phpBB Extension - Online Since 1.0.2 - 14-10-2015
 *
 * @copyright (c) 2005-2008-2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
@@ -96,7 +96,7 @@ class listener implements EventSubscriberInterface
 			)
 		);
 
-		$start_date = @gmdate('Y-m-d', $this->config['board_startdate'] + (3600 *  $this->config['board_timezone']));
+		$start_date = @gmdate('Y-m-d', $this->config['onlinesince_startdate'] + (3600 *  $this->config['board_timezone']));
 		$today_date = @gmdate('Y-m-d', time() + (3600 *  $this->config['board_timezone']));
 
 		list($year1, $month1, $day1) = split('-', $start_date);
@@ -137,7 +137,7 @@ class listener implements EventSubscriberInterface
 		/* Plural Rules here */
 		$online_for = ($this->user->lang('ONLINE_YEAR', (int) $diff_year) .  $this->user->lang('ONLINE_MONTH', (int) $diff_month) . $this->user->lang('ONLINE_DAY', (int) $diff_day));
 
-		$start_date = $this->user->format_date($this->config['board_startdate'], 'd m Y');
+		$start_date = $this->user->format_date($this->config['onlinesince_startdate'], 'd m Y');
 
 		$this->template->assign_vars(array(
 		'VERSION_ONLINESINCE'		=> ext::VERSION_ONLINESINCE,

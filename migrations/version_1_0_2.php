@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package Online Since v1.0.2 - 13-10-2015
+* @package Online Since v1.0.2 - 14-10-2015
 * @copyright (c) 2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -25,9 +25,15 @@ class version_1_0_2 extends \phpbb\db\migration\migration
 
 	public function update_data()
 	{
+		global $config;
+
+		$orig_board_startdate = (int) $config['board_startdate'];
+
 		return array(
+			array('config.add', array('onlinesince_startdate', (int) $orig_board_startdate)),
 			array('permission.add', array('u_allow_onlinesince')),
 			array('permission.permission_set', array('REGISTERED', 'u_allow_onlinesince', 'group')),
+			//array('config.update', array('onlinesince_version', '1.0.2')),
 		);
 	}
 
