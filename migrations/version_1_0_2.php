@@ -31,9 +31,9 @@ class version_1_0_2 extends \phpbb\db\migration\migration
 
 		return array(
 			array('config.add', array('onlinesince_startdate', (int) $orig_board_startdate)),
+			array('config.remove', array('onlinesince_version')),
 			array('permission.add', array('u_allow_onlinesince')),
 			array('permission.permission_set', array('REGISTERED', 'u_allow_onlinesince', 'group')),
-			//array('config.update', array('onlinesince_version', '1.0.2')),
 		);
 	}
 
