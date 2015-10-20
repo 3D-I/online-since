@@ -88,6 +88,9 @@ class listener implements EventSubscriberInterface
 
 	public function display_onlinesince($event)
 	{
+
+// NOTE to SELF: put a condition based on permissions in order the code not to be ran, in case.
+
 		$year = date("Y", time());
 		$days_of_month = array(
 			array(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
@@ -95,6 +98,8 @@ class listener implements EventSubscriberInterface
 			array(0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
 			)
 		);
+
+// NOTE to SELF: try using phpbb_gmgetdate instead, like this..
 
 		$start_date = @gmdate('Y-m-d', $this->config['onlinesince_startdate'] + (3600 *  $this->config['board_timezone']));
 		$today_date = @gmdate('Y-m-d', time() + (3600 *  $this->config['board_timezone']));
@@ -144,7 +149,7 @@ class listener implements EventSubscriberInterface
 		'U_ALLOW_ONLINESINCE'		=> ($this->auth->acl_get('u_allow_onlinesince')) ? true : false,
 		'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
 		'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
-		'L_BOARD_STARTS'			=> (' ' . $start_date . ' -'),
+		'L_BOARD_STARTS'			=> (' ' . $start_date . ' '),
 		'L_ONLINE_FOR'				=> (' ' . $online_for),
 		));
 	}

@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package Online Since v1.0.2 - 13-10-2015
+* @package Online Since
 * @copyright (c) 2015 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -15,7 +15,7 @@ namespace threedi\onlinesince;
 
 class ext extends \phpbb\extension\base
 {
-	const VERSION_ONLINESINCE = '1.0.2';
+	const VERSION_ONLINESINCE = '1.0.3';
 
 	/**
 	* Check whether or not the extension can be enabled.
@@ -31,6 +31,5 @@ class ext extends \phpbb\extension\base
 	{
 		$config = $this->container->get('config');
 		return phpbb_version_compare($config['version'], '3.1.3', '>=');
-		//return phpbb_version_compare($config['onlinesince_version'], '1.0.4', '>=');
 	}
 }
