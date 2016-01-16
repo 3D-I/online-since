@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Online Since 1.0.2 [English]
+* Online Since 1.0.3 [English]
 *
-* @copyright (c) 2005-2008-2015 3Di
+* @copyright (c) 2005-2008-2016 3Di
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -34,9 +34,11 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'ONLINE_START'		=> 'Board start date',
+	'ONLINE_START'		=> 'Board start date:',
 	'ONLINE_SINCE'		=> ' Elapsed time',
 	'ONLINE_TITLE'		=> 'Online since ',
+	'ONLINE_AT'			=> ' at ',
+
 	'ONLINE_YEAR'	=> array(
 		1	=> '<strong>%d</strong> Year ',
 		2	=> '<strong>%d</strong> Years ',

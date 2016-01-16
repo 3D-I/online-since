@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* @package phpBB Extension - Online Since 1.0.2 - 14-10-2015
+* @package phpBB Extension - Online Since 1.0.3
 *
-* @copyright (c) 2005-2008-2015 3Di
+* @copyright (c) 2005-2008-2016 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -14,6 +14,7 @@ namespace threedi\onlinesince\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 use threedi\onlinesince\ext;
 
 /**
@@ -59,30 +60,26 @@ class listener implements EventSubscriberInterface
 		);
 	}
 
+	/* Permission's language file is automatically loaded */
 	public function permissions($event)
 	{
 		$permissions = $event['permissions'];
-
 		$permissions += array(
 			'u_allow_onlinesince' => array(
 				'lang'	=> 'ACL_U_ALLOW_ONLINESINCE',
 				'cat'	=> 'misc'
 			),
 		);
-
 		$event['permissions'] = $permissions;
 	}
 
-	/* Permissions language file is automatically loaded ;) */
 	public function load_language_on_setup($event)
 	{
 		$lang_set_ext = $event['lang_set_ext'];
-
 		$lang_set_ext[] = array(
 			'ext_name' => 'threedi/onlinesince',
 			'lang_set' => 'common',
 		);
-
 		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
@@ -99,13 +96,11 @@ class listener implements EventSubscriberInterface
 			)
 		);
 
-// NOTE to SELF: try using phpbb_gmgetdate instead, like this..
+		$start_date = gmdate('Y-m-d', $this->config['onlinesince_startdate']);
+		$today_date = gmdate('Y-m-d', time());
 
-		$start_date = @gmdate('Y-m-d', $this->config['onlinesince_startdate'] + (3600 *  $this->config['board_timezone']));
-		$today_date = @gmdate('Y-m-d', time() + (3600 *  $this->config['board_timezone']));
-
-		list($year1, $month1, $day1) = split('-', $start_date);
-		list($year2, $month2, $day2) = split('-', $today_date);
+		list($year1, $month1, $day1) = explode('-', $start_date);
+		list($year2, $month2, $day2) = explode('-', $today_date);
 
 		$diff_year = $year2 - $year1;
 		$diff_month = $month2 - $month1;
@@ -118,7 +113,7 @@ class listener implements EventSubscriberInterface
 			*
 			* This is a loop in case the previous month is
 			* February, and days < -28.
-			*/
+		*/
 		$prev_month_days = $days_of_month[$is_leap][$month2 - 1];
 
 		while ($diff_day < 0)
@@ -142,14 +137,13 @@ class listener implements EventSubscriberInterface
 		/* Plural Rules here */
 		$online_for = ($this->user->lang('ONLINE_YEAR', (int) $diff_year) .  $this->user->lang('ONLINE_MONTH', (int) $diff_month) . $this->user->lang('ONLINE_DAY', (int) $diff_day));
 
-		$start_date = $this->user->format_date($this->config['onlinesince_startdate'], 'd m Y');
+		/* converts the board start date's output to a most used and accurate rapresentation */
+		$onlinesince_start_date = $this->user->format_date($this->config['onlinesince_startdate'], 'd m Y') . $this->user->lang['ONLINE_AT'] . $this->user->format_date($this->config['onlinesince_startdate'], 'H:i:s');
 
 		$this->template->assign_vars(array(
 		'VERSION_ONLINESINCE'		=> ext::VERSION_ONLINESINCE,
 		'U_ALLOW_ONLINESINCE'		=> ($this->auth->acl_get('u_allow_onlinesince')) ? true : false,
-		'L_ONLINE_SINCE'			=> $this->user->lang['ONLINE_SINCE'],
-		'L_ONLINE_START'			=> $this->user->lang['ONLINE_START'],
-		'L_BOARD_STARTS'			=> (' ' . $start_date . ' '),
+		'L_BOARD_STARTS'			=> (' ' . $onlinesince_start_date . ' '),
 		'L_ONLINE_FOR'				=> (' ' . $online_for),
 		));
 	}
