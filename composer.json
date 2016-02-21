@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "phpBB3.1 extension that displays the length of time your board has been online in Years, Months and Days, Hours and Minutes",
 	"homepage": "http://3d-i.github.io/online-since",
-	"version": "1.1.0",
+	"version": "1.1.0-b1",
 	"time": "2016-02-21",
 	"license": "GPL-2.0",
 	"authors": [
@@ -44,10 +44,11 @@
 		{
 			"phpbb/phpbb": ">=3.1.8-RC1,<3.2.0@dev"
 		},
-		"version-check": {
-		"host": "3d-i.github.io",
-		"directory": "/onlinesince",
-		"filename": "onlinesince_vcheck"
+		"version-check":
+		{
+			"host": "github.com",
+			"directory": "/3D-I/online-since/blob/master",
+			"filename": "onlinesince_vcheck.json"
 		}
 	}
 }

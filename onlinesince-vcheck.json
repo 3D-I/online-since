@@ -1,6 +1,8 @@
 {
-	"stable": {
-		"1.0": {
+	"stable":
+	{
+		"1.0":
+		{
 			"current": "1.0.1",
 			"download": "https://github.com/3D-I/online-since/archive/RC2.zip",
 			"announcement": "",
