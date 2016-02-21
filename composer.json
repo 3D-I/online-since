@@ -46,8 +46,8 @@
 		},
 		"version-check":
 		{
-			"host": "raw.githubusercontent.com",
-			"directory": "/3D-I/online-since/master",
+			"host": "github.com",
+			"directory": "/3D-I/online-since/blob/master",
 			"filename": "onlinesince-vcheck.json"
 		}
 	}
