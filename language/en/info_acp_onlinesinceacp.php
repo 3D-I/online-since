@@ -1,9 +1,8 @@
 <?php
 /**
 *
-* @package Online Since 1.1.0- ACP [English]
-*
-* @copyright (c) 2016 3Di
+* @package Online Since 1.1.0 - Info ACP [English]
+* @copyright (c) 2005 - 2016 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -51,22 +50,20 @@ $lang = array_merge($lang, array(
 	'ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN'			=> '<em>Do you want to revert to the origins?</em>',
 	'ONLINE_SINCE_ACP_INVALID_BSD'				=> 'The entered date is not valid.',
 
-	'ONLINE_SINCE_ACP_GFX'					=> 'ACP graphic background',
-	'ONLINE_SINCE_ACP_GFX_EXPLAIN'			=> '<em>Do you want GFX to be shown?',
+	'ONLINE_SINCE_ACP_GFX'						=> 'ACP graphic background',
+	'ONLINE_SINCE_ACP_GFX_EXPLAIN'				=> '<em>Do you want GFX to be shown?',
 
-	'ONLINE_SINCE_RESTORE_ORIG_BSD_EXPLAIN'			=> 'Selecting this will reset the user’s post count to zero.<br /><strong>Note:</strong> Selecting this will overwrite any value entered in the <strong>Reset value</strong> field.',
-
-	'ONLINE_SINCE_ACP_START_DATE_RESET'		=> 'Set the Online Since to now()',
+	'ONLINE_SINCE_ACP_START_DATE_RESET'			=> 'Set the Online Since to now()',
 	'ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN'	=> 'A fresh new start for your board',
 
-	'ONLINESINCE_SAVED'						=> 'Online Since: Your settings have been saved.',
+	'ONLINESINCE_SAVED'							=> 'Online Since: Your settings have been saved.',
 
-	//'UNIX_TIMESTAMP'					=> ' using an UNIX Timestamp',
-	'UNIX_TIMESTAMP_EXPLAIN'			=> '<em>Insert a valid epoch timestamp.<br />Only integers (0-9) allowed. Max 12.</em>',
-	'UNIX_TIMESTAMP_WHO'				=> '<br /><em>http://www.dracon.biz/timestamp.php</em>',
+	//'UNIX_TIMESTAMP'							=> ' using an UNIX Timestamp',
+	'UNIX_TIMESTAMP_EXPLAIN'					=> '<em>Insert a valid epoch timestamp.<br />Only integers (0-9) allowed. Max 12.</em>',
+	'UNIX_TIMESTAMP_WHO'						=> '<br /><em>http://www.dracon.biz/timestamp.php</em>',
 
-	'ONLINE_AT'			=> ' at ',
-	'OS_TIMESTAMP_MUST_BE_NUMBERS_ONLY' => 'Only numbers allowed beetwen 0 and 2147483647<br />Please correctly fill the timestamp field, empty field is not allowed',
+	'ONLINE_AT'									=> ' at ',
+	'OS_TIMESTAMP_MUST_BE_NUMBERS_ONLY'			=> 'Online Since: Only numbers (integers) allowed<br />Please correctly fill the timestamp field',
 
-	'ERRORE DI COMPARAZIONE'			=> 'Errore di comparazione',
+	'COMPARISON_ERROR'							=> 'Online Since: Comparison error',
 ));
