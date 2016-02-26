@@ -1,6 +1,7 @@
 # online-since
 
-phpBB3.1 extension that shows the length of time your board has been online. in Years, Months and Days.
+phpBB3.1.x extension that displays the length of time your board has been online in Years, Months, Days, Hours and Minutes. The newly created ACP module gives you several options to play with.
+Permissions based, gives you the possibility to hide from the index page its view from the groups/users you want to. As per default is ON for the Registered Users Group.
 
 This is a port of the MOD I made first for phpBB2 and for phpBB3 (Olympus) then.
 

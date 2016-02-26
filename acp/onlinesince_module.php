@@ -42,7 +42,7 @@ class onlinesince_module
 			trigger_error($user->lang['ONLINESINCE_SAVED'] . adm_back_link($this->u_action));
 		}
 		/* there are conditions to satisfy */
-		$os_start	= (!empty($config['onlinesince_startdate'])) ? ((int) ($config['onlinesince_startdate'])) : ''; //$request->variable('onlinesince_startdate', 0);
+		$os_start	= (!empty($config['onlinesince_startdate'])) ? ((int) ($config['onlinesince_startdate'])) : '';
 		$os_start_preg	= (preg_match('/^[1-9][0-9]{0,12}$/', $os_start));
 		$reset		= (!empty($config['onlinesince_startdate_reset'])) ? true : false;
 		$restore	= (!empty($config['onlinesince_restore'])) ? true : false;

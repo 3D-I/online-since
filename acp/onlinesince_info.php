@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package Online Since 1.0.2
-* @copyright (c) 2016 3Di
+* @package Online Since 1.1.0
+* @copyright (c) 2005 - 2016 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -16,7 +16,7 @@ class onlinesince_info
 		return array(
 			'filename'	=> '\threedi\onlinesince\acp\onlinesince_module',
 			'title'		=> 'ACP_ONLINE_SINCE',
-			'version'	=> '1.0.2',
+			'version'	=> '1.1.0',
 			'modes'		=> array('main' => array('title' => 'ACP_ONLINE_SINCE', 'auth' => 'ext_threedi/onlinesince && acl_a_board', 'cat' => array('ACP_ONLINE_SINCE')),
 			),
 		);
