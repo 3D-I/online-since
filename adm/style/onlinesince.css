@@ -1,0 +1,9 @@
+/* CSS Document */
+
+.onlinesince {
+	background-image: url("onlinesinceclock.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}

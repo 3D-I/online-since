@@ -2,7 +2,7 @@
 /**
 *
 * @package Online Since 1.1.0
-* @copyright (c) 2016 3Di
+* @copyright (c) 2005 - 2016 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -15,7 +15,7 @@ namespace threedi\onlinesince;
 
 class ext extends \phpbb\extension\base
 {
-	const VERSION_ONLINESINCE = '1.1.0';
+	const VERSION_ONLINESINCE = '1.1.0-b1';
 
 	/**
 	* Check whether or not the extension can be enabled.
