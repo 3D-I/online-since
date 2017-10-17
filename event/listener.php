@@ -14,8 +14,6 @@ namespace threedi\onlinesince\event;
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-use threedi\onlinesince\ext;
-
 /**
 * Event listener
 */
@@ -59,16 +57,24 @@ class listener implements EventSubscriberInterface
 		);
 	}
 
-	/* Permission's language file is automatically loaded */
+	/**
+	 * Permission's language file is automatically loaded
+	 *
+	 * @event core.permissions
+	 */
 	public function permissions($event)
 	{
 		$permissions = $event['permissions'];
-		$permissions += array(
-			'u_allow_onlinesince' => array(
+		$permissions += [
+			'u_allow_onlinesince' => [
 				'lang'	=> 'ACL_U_ALLOW_ONLINESINCE',
-				'cat'	=> 'misc'
-			),
-		);
+				'cat'	=> 'misc',
+			],
+			'a_onlinesince_admin' => [
+				'lang'	=> 'ACL_A_ONLINESINCE_ADMIN',
+				'cat'	=> 'misc',
+			],
+		];
 		$event['permissions'] = $permissions;
 	}
 
@@ -88,14 +94,12 @@ class listener implements EventSubscriberInterface
 // NOTE to SELF: put a condition based on permissions in order the code not to be ran, in case.
 
 		$year = date("Y", time());
-		$days_of_month = array(
-			array(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-			),
-			array(0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-			)
-		);
+		$days_of_month = [
+			[0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+			[0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+		];
 
-		$start_date = gmdate('Y-m-d', $this->config['onlinesince_startdate']);
+		$start_date = gmdate('Y-m-d', $this->config['threedi_os_startdate']);
 		$today_date = gmdate('Y-m-d', time());
 
 		list($year1, $month1, $day1) = explode('-', $start_date);
@@ -137,11 +141,9 @@ class listener implements EventSubscriberInterface
 		$online_for = ($this->user->lang('ONLINE_YEAR', (int) $diff_year) .  $this->user->lang('ONLINE_MONTH', (int) $diff_month) . $this->user->lang('ONLINE_DAY', (int) $diff_day));
 
 		/* converts the board start date's output to a most used and accurate rapresentation */
-		$onlinesince_start_date = $this->user->format_date($this->config['onlinesince_startdate'], 'd m Y') . $this->user->lang['ONLINE_AT'] . $this->user->format_date($this->config['onlinesince_startdate'], 'H:i');
+		$onlinesince_start_date = $this->user->format_date($this->config['threedi_os_startdate'], 'd m Y') . $this->user->lang['ONLINE_AT'] . $this->user->format_date($this->config['threedi_os_startdate'], 'H:i');
 
 		$this->template->assign_vars(array(
-		'VERSION_ONLINESINCE'		=> ext::VERSION_ONLINESINCE,
-
 		'U_ALLOW_ONLINESINCE'		=> ($this->auth->acl_get('u_allow_onlinesince')) ? true : false,
 
 		'L_BOARD_STARTS'			=> (' ' . $onlinesince_start_date . ' '),

@@ -1,20 +1,20 @@
 <?php
 /**
 *
-* @package Online Since 1.1.0
-* @copyright (c) 2005 - 2016 3Di
+* @package Online Since
+* @copyright (c) 2005 - 2017 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
 namespace threedi\onlinesince\migrations;
 
-class version_1_0_3 extends \phpbb\db\migration\migration
+class m3_acp extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
 		return array(
-			'\threedi\onlinesince\migrations\version_1_0_1',
+			'\threedi\onlinesince\migrations\m2_perms',
 		);
 	}
 

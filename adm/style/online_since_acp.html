@@ -18,7 +18,7 @@
 				<input name="onlinesince_startdate" type="text" id="onlinesince_startdate" value="{ONLINESINCE_STARTDATE}" length="100" maxlength="12" /> {L_OS_BOARD_START}<br />{L_UNIX_TIMESTAMP_WHO}
 			</dd>
 		</dl>
-		<hr>
+
 		<dl>
 			<dt><label for="onlinesince_startdate_reset">{L_ONLINE_SINCE_ACP_START_DATE_RESET}{L_COLON}</label><br /><span>{L_ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN}</span></dt>
 			<dd>
@@ -26,7 +26,7 @@
 				<label><input type="radio" class="radio" name="onlinesince_startdate_reset" value="0"<!-- IF not ONLINE_SINCE_STARTDATE_RESET --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<hr>
+
 		<dl>
 			<dt><label for="onlinesince_restore">{L_ONLINE_SINCE_ACP_ORIG_BSD}{L_COLON}</label><br /><span>{L_ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN}</span></dt>
 			<dd>
@@ -34,15 +34,6 @@
 				<label><input type="radio" class="radio" name="onlinesince_restore" value="0"<!-- IF not ONLINESINCE_RESTORE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<hr>
-		<dl>
-			<dt><label for="onlinesince_gfx">{L_ONLINE_SINCE_ACP_GFX}{L_COLON}</label><br /><span>{L_ONLINE_SINCE_ACP_GFX_EXPLAIN}</span></dt>
-			<dd>
-				<label><input type="radio" class="radio" name="onlinesince_gfx" id="onlinesince_gfx" value="1"<!-- IF ONLINESINCE_GFX --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="onlinesince_gfx" value="0"<!-- IF not ONLINESINCE_GFX --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-			</dd>
-		</dl>
-		<hr>
 	</fieldset>
 
 	<fieldset class="submit-buttons">

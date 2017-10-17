@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package Online Since 1.1.0 - Permissions [English]
-* @copyright (c) 2005 - 2016 3Di
+* @package Online Since
+* @copyright (c) 2005 - 2017 3Di
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -17,7 +17,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -32,6 +32,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 		'ACL_U_ALLOW_ONLINESINCE'		=> 'Can view the Online Since',
-));
+		'ACL_A_ONLINESINCE_ADMIN'		=> 'Can administer the Online Since',
+]);
