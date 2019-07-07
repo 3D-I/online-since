@@ -1,0 +1,60 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_OS_TITLE') }}</h1>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<fieldset class="os-acp-outer">
+	<div class="os-acp-rules">{{ lang('ACP_OS') }}</div>
+	<fieldset class="os-acp-middle">
+
+		<fieldset class="os-acp-inner">
+			<legend>{{ lang('OS_ACP_START_DATE') }}</legend>
+			<form id="threedi_os_acp_add" name="threedi_os_acp_add" method="post" action="{{ U_ACTION_ADD }}">
+				<dl>
+					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_CHANGE_BSD') ~ lang('COLON') }}</label><br>{{ lang('UNIX_TIMESTAMP_EXPLAIN') }}{{ lang('UNIX_TIMESTAMP_WHO') }}<br>{{ lang('ONLINE_SINCE_ACP_CHANGE_BSD_EXPLAIN') }}</dt>
+					<dd>
+						<input id="threedi_os_startdate"  class="inputbox autowidth" maxlength="18" name="threedi_os_startdate" type="text" value="{{ OS_STARTDATE }}">
+					</dd>&nbsp;{{ L_OS_BOARD_START }}
+				</dl>
+
+				<p class="quick">
+					<input class="button1" name="threedi_os_startdate_addition" value="{{ lang('SUBMIT') }}" type="submit">
+				</p>
+				{{ S_FORM_TOKEN }}
+			</form>
+		</fieldset>
+
+		<fieldset class="os-acp-inner">
+			<legend>{{ lang('OS_ACP_NOW_DATE') }}</legend>
+			<form id="threedi_os_acp_setnow" name="threedi_os_acp_setnow" method="post" action="{{ U_ACTION_SETNOW }}" data-ajax="true" data-refresh="true">
+				<dl>
+					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_START_DATE_RESET') ~ lang('COLON') }}</label><br>{{ lang('ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN') }}</dt>
+					<dd>
+						<input class="button1" id="threedi_os_startdate" name="threedi_os_startdate" value="{{ lang('RUN') }}" type="submit">
+					</dd>
+				</dl>
+			</form>
+		</fieldset>
+
+		<fieldset class="os-acp-inner">
+			<legend>{{ lang('OS_ACP_RESTORE_DATE') }}</legend>
+			<form id="threedi_os_acp_restore" name="threedi_os_acp_restore" method="post" action="{{ U_ACTION_RESTORE }}" data-ajax="true" data-refresh="true">
+				<dl>
+					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_ORIG_BSD') ~ lang('COLON') }}</label><br>{{ lang('ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN') }}</dt>
+					<dd>
+						<input class="button1" id="threedi_os_startdate" name="threedi_os_startdate" value="{{ lang('RUN') }}" type="submit">
+					</dd>
+				</dl>
+			</form>
+		</fieldset>
+
+	</fieldset>
+</fieldset>
+
+{% include 'overall_footer.html' %}

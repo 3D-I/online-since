@@ -34,25 +34,18 @@ if (empty($lang) || !is_array($lang))
 // ’ » “ ” …
 //
 
+/**
+*	EXTENSION-DEVELOPERS PLEASE NOTE
+*
+*	You are able to put your permission sets into your extension.
+*	The permissions logic should be added via the 'core.permissions' event.
+*	You can easily add new permission categories, types and permissions, by
+*	simply merging them into the respective arrays.
+*	The respective language strings should be added into a language file, that
+*	start with 'permissions_', so they are automatically loaded within the ACP.
+*/
+
 $lang = array_merge($lang, array(
-	'ACP_OS_SETTING_SAVED'	=> 'Settings have been saved successfully!',
-
-	'OS_START'		=> 'Board start date',
-	'OS_ELAPSED'	=> 'Elapsed time',
-	'OS_TITLE'		=> 'Online since',
-	'OS_AT'			=> 'at',
-
-	'OS_YEAR'	=> array(
-		1	=> '<strong>%d</strong> Year',
-		2	=> '<strong>%d</strong> Years',
-	),
-	'OS_MONTH'	=> array(
-		1	=> '<strong>%d</strong> Month',
-		2	=> '<strong>%d</strong> Months',
-	),
-	'OS_DAY'	=> array(
-		1	=> '<strong>%d</strong> Day',
-		2	=> '<strong>%d</strong> Days',
-	)
+	'ACL_A_NEW_THREEDI_OS'	=> 'Can administer the Online Since',
+	'ACL_U_NEW_THREEDI_OS'	=> 'Can view the Online Since',
 ));
-

@@ -1,15 +1,13 @@
 <?php
 /**
-*
-* @package Online Since 1.1.0 - Info ACP [English]
-* @copyright (c) 2005 - 2016 3Di
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-*/
+ *
+ * Online Since. An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2005 - 2019, 3Di, https://www.phpbbstudio.com
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
 
-/**
-* DO NOT CHANGE
-*/
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -37,11 +35,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'ACP_ONLINE_SINCE_PAGE_TITLE'				=> 'Online Since ACP Tools',
-	'ACP_ONLINE_SINCE_TOOLS'					=> 'Online Since',
-	'ACP_ONLINE_SINCE'							=> 'Settings',
-	'ONLINE_SINCE_ACP_TOOLS'					=> 'Online Since ACP Tools',
-	'ONLINE_SINCE_ACP_TOOLS_EXPLAIN'			=> 'Here you can set some things, enjoy.',
+	'ACP_OS_TITLE'	=> 'Online Since Module',
+	'ACP_OS'		=> 'Online Since Settings',
 
 	'ONLINE_SINCE_ACP_CHANGE_BSD'				=> 'Change Online Since\'s Board start date',
 	'ONLINE_SINCE_ACP_CHANGE_BSD_EXPLAIN'		=> '<br />I.e.: your Birthday’s date.</br></br><em>Original Board’s startdate will not be not altered in the DB. You can restore it at some point.</em>',
@@ -50,20 +45,19 @@ $lang = array_merge($lang, array(
 	'ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN'			=> '<em>Do you want to revert to the origins?</em>',
 	'ONLINE_SINCE_ACP_INVALID_BSD'				=> 'The entered date is not valid.',
 
-	'ONLINE_SINCE_ACP_GFX'						=> 'ACP graphic background',
-	'ONLINE_SINCE_ACP_GFX_EXPLAIN'				=> '<em>Do you want GFX to be shown?',
-
 	'ONLINE_SINCE_ACP_START_DATE_RESET'			=> 'Set the Online Since to now()',
 	'ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN'	=> 'A fresh new start for your board',
 
 	'ONLINESINCE_SAVED'							=> 'Online Since: Your settings have been saved.',
 
 	//'UNIX_TIMESTAMP'							=> ' using an UNIX Timestamp',
-	'UNIX_TIMESTAMP_EXPLAIN'					=> '<em>Insert a valid epoch timestamp.<br />Only integers (0-9) allowed. Max 12.</em>',
-	'UNIX_TIMESTAMP_WHO'						=> '<br /><em>http://www.dracon.biz/timestamp.php</em>',
+	'UNIX_TIMESTAMP_EXPLAIN'					=> '<em>Insert a valid unix (epoch) timestamp.<br />Only integers (0-9) and minus allowed. Max 18.</em>',
+	'UNIX_TIMESTAMP_WHO'						=> '<br /><em>https://www.epochconverter.com</em>',
 
 	'ONLINE_AT'									=> ' at ',
 	'OS_TIMESTAMP_MUST_BE_NUMBERS_ONLY'			=> 'Online Since: Only numbers (integers) allowed<br />Please correctly fill the timestamp field',
 
 	'COMPARISON_ERROR'							=> 'Online Since: Comparison error',
+
+	'LOG_ACP_OS_SETTINGS'		=> '<strong>Online Since settings updated</strong>',
 ));

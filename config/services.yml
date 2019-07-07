@@ -1,9 +1,20 @@
 services:
-    threedi.onlinesince.listener:
-        class: threedi\onlinesince\event\listener
+    threedi.os.controller.acp:
+        class: threedi\os\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    threedi.os.listener:
+        class: threedi\os\event\main_listener
         arguments:
             - '@auth'
             - '@config'
+            - '@language'
             - '@template'
             - '@user'
         tags:
