@@ -55,4 +55,3 @@ $lang = array_merge($lang, array(
 		2	=> '<strong>%d</strong> Days',
 	)
 ));
-
