@@ -1,31 +1,11 @@
-# online-since
-
-phpBB3.1.x extension that displays the length of time your board has been online in Years, Months, Days, Hours and Minutes. The newly created ACP module gives you several options to play with.
-Permissions based, gives you the possibility to hide from the index page its view from the groups/users you want to. As per default is ON for the Registered Users Group.
-
-This is a port of the MOD I made first for phpBB2 and for phpBB3 (Olympus) then.
-
-Build Status: [![Build Status](https://travis-ci.org/3D-I/online-since.svg)](https://travis-ci.org/3D-I/online-since)
-
-![Screenshot](online-since.png)
+# Online Since
 
 ## Installation
 
-### 1. clone
-Clone (or download and move) the repository into the folder ext/threedi/onlinesince
-(create it if not already exists):
+Copy the extension to phpBB/ext/threedi/os
 
-```
-cd phpBB3
-git clone https://github.com/3D-I/online-since.git ext/threedi/onlinesince/
-```
+Go to "ACP" > "Customise" > "Extensions" and enable the "Online Since" extension.
 
-### 2. activate
-Go to admin panel -> tab Customise -> Manage extensions -> enable Online Since 
+## License
 
-## Update instructions:
-1. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > Online Since : disable
-2. Delete all files of the extension from ext/threedi/onlinesince
-3. Upload all the new files to the same locations
-4. Go to you phpBB-Board > Admin Control Panel > Customise > Manage extensions > Online Since : enable
-5. Purge the board cache
+[GPLv2](license.txt)
