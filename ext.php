@@ -12,10 +12,31 @@ namespace threedi\os;
 
 /**
  * Online Since Extension base
- *
- * It is recommended to remove this file from
- * an extension if it is not going to be used.
  */
 class ext extends \phpbb\extension\base
 {
+	/**
+	 * Check whether or not the extension can be enabled.
+	 *
+	 * @return bool
+	 */
+	public function is_enableable()
+	{
+		$is_enableable = true;
+
+		$user = $this->container->get('user');
+		$user->add_lang_ext('threedi/os', 'ext_require');
+		$lang = $user->lang;
+
+		if (!(phpbb_version_compare(PHPBB_VERSION, '3.2.7', '>=') && phpbb_version_compare(PHPBB_VERSION, '4.0.0@dev', '<')))
+		{
+			$lang['EXTENSION_NOT_ENABLEABLE'] .= '<br>' . $user->lang('ERROR_PHPBB_VERSION', '3.2.7', '4.0.0@dev');
+
+			$is_enableable = false;
+		}
+
+		$user->lang = $lang;
+
+		return $is_enableable;
+	}
 }

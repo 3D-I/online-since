@@ -72,16 +72,16 @@ class acp_controller
 	{
 		$os_start = $this->request->variable('threedi_os_startdate', 0);
 
-		// Add our common language file
+		/* Add our common language file */
 		$this->language->add_lang('common', 'threedi/os');
 
-		// Create a form key for preventing CSRF attacks
+		/* Create a form key for preventing CSRF attacks */
 		add_form_key('threedi_os_acp_add');
 
 		/* Request the action */
 		$action = $this->request->variable('action', '');
 
-		// Create an array to collect errors that will be output to the user
+		/* Create an array to collect errors that will be output to the user */
 		$errors = [];
 
 		switch ($action)
@@ -89,7 +89,7 @@ class acp_controller
 			case 'change':
 				if ($submit = $this->request->is_set_post('threedi_os_startdate_change'))
 				{
-					// Test if the submitted form is valid
+					/* Test if the submitted form is valid */
 					if (!check_form_key('threedi_os_acp_add'))
 					{
 						$errors[] = $this->language->lang('FORM_INVALID');
@@ -107,17 +107,19 @@ class acp_controller
 						$errors[] = $this->language->lang('ACP_OS_UNIX_INVALID');
 					}
 
-					// If no errors, process the form data
+					/* No errors? Very well.. */
 					if (empty($errors))
 					{
-						// resets the board start date to the desired one.
+						/* Set the BSD to the desired one. */
 						$this->config->set('threedi_os_startdate', (int) $os_start);
 
-						// Add option settings change action to the admin log
+						/* Log the action */
 						$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_OS_BSD_CHANGED');
 
-						// Option settings have been updated and logged
-						// Confirm this to the user and provide link back to previous page
+						/**
+						 * Option change BSD has been updated and logged
+						 * Confirm this to the user and provide link back to previous page
+						 */
 						trigger_error($this->language->lang('ACP_OS_CHANGE_SAVED') . adm_back_link($this->u_action));
 					}
 				}
@@ -126,7 +128,7 @@ class acp_controller
 			case 'setnow':
 				if (confirm_box(true))
 				{
-					/*  */
+					/* Set our configuration at the present time */
 					$this->config->set('threedi_os_startdate', (int) time());
 
 					/* Log the action */
@@ -139,14 +141,14 @@ class acp_controller
 						$json_response = new \phpbb\json_response();
 
 						/* Send a JSON response */
-						$json_response->send(array(
+						$json_response->send([
 							'MESSAGE_TITLE'	=> $this->language->lang('INFORMATION'),
 							'MESSAGE_TEXT'	=> $this->language->lang('ACP_OS_SETNOW'),
-							'REFRESH_DATA'	=> array(
+							'REFRESH_DATA'	=> [
 								'url'	=> '',
 								'time'	=> 2,
-							),
-						));
+							],
+						]);
 					}
 
 					/* Show success message when not using AJAX */
@@ -154,8 +156,12 @@ class acp_controller
 				}
 				else
 				{
-					confirm_box(false, $this->language->lang('ACP_OS_SETNOW_CONFIRM'), build_hidden_fields(array(
-						'action'	=> $action))
+					confirm_box(
+						false,
+						$this->language->lang('ACP_OS_SETNOW_CONFIRM'),
+						build_hidden_fields(
+							['action'	=> $action]
+						)
 					);
 
 					/* Redirect if confirm box is cancelled ('No'). */
@@ -166,7 +172,7 @@ class acp_controller
 			case 'restore':
 				if (confirm_box(true))
 				{
-					/*  */
+					/* Set our configuration back to the original one */
 					$this->config->set('threedi_os_startdate', (int) $this->config['board_startdate']);
 
 					/* Log the action */
@@ -179,14 +185,14 @@ class acp_controller
 						$json_response = new \phpbb\json_response();
 
 						/* Send a JSON response */
-						$json_response->send(array(
+						$json_response->send([
 							'MESSAGE_TITLE'	=> $this->language->lang('INFORMATION'),
 							'MESSAGE_TEXT'	=> $this->language->lang('ACP_OS_RESTORED'),
-							'REFRESH_DATA'	=> array(
+							'REFRESH_DATA'	=> [
 								'url'	=> '',
 								'time'	=> 2,
-							),
-						));
+							],
+						]);
 					}
 
 					/* Show success message when not using AJAX */
@@ -194,8 +200,12 @@ class acp_controller
 				}
 				else
 				{
-					confirm_box(false, $this->language->lang('ACP_OS_RESTORE_CONFIRM'), build_hidden_fields(array(
-						'action'	=> $action))
+					confirm_box(
+						false,
+						$this->language->lang('ACP_OS_RESTORE_CONFIRM'),
+						build_hidden_fields(
+							['action'	=> $action]
+						)
 					);
 
 					/* Redirect if confirm box is cancelled ('No'). */
@@ -209,7 +219,7 @@ class acp_controller
 		/* Converts the board start date into an human readable format */
 		$os_board_startdate = $this->user->format_date($this->config['threedi_os_startdate'], 'd m Y H:i');
 
-		// Set output variables for display in the template
+		/* Set output variables for display in the template */
 		$this->template->assign_vars([
 			'S_OS_GFX'			=> true,
 			'S_ERROR'			=> $s_errors,

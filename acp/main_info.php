@@ -17,16 +17,16 @@ class main_info
 {
 	public function module()
 	{
-		return array(
+		return [
 			'filename'	=> '\threedi\os\acp\main_module',
 			'title'		=> 'ACP_OS_TITLE',
-			'modes'		=> array(
-				'settings'	=> array(
+			'modes'		=> [
+				'settings'	=> [
 					'title'	=> 'ACP_OS',
 					'auth'	=> 'ext_threedi/os && acl_a_new_threedi_os',
-					'cat'	=> array('ACP_OS_TITLE')
-				),
-			),
-		);
+					'cat'	=> ['ACP_OS_TITLE']
+				],
+			],
+		];
 	}
 }
