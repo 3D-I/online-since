@@ -86,8 +86,8 @@ class acp_controller
 
 		switch ($action)
 		{
-			case 'add':
-				if ($submit = $this->request->is_set_post('threedi_os_startdate_addition'))
+			case 'change':
+				if ($submit = $this->request->is_set_post('threedi_os_startdate_change'))
 				{
 					// Test if the submitted form is valid
 					if (!check_form_key('threedi_os_acp_add'))
@@ -102,11 +102,11 @@ class acp_controller
 						$this->config->set('threedi_os_startdate', (int) $os_start);
 
 						// Add option settings change action to the admin log
-						$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_OS_SETTINGS');
+						$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_OS_BSD_CHANGED');
 
 						// Option settings have been updated and logged
 						// Confirm this to the user and provide link back to previous page
-						trigger_error($this->language->lang('ACP_OS_SETTING_SAVED') . adm_back_link($this->u_action));
+						trigger_error($this->language->lang('ACP_OS_CHANGE_SAVED') . adm_back_link($this->u_action));
 					}
 				}
 			break;
@@ -118,10 +118,10 @@ class acp_controller
 					$this->config->set('threedi_os_startdate', (int) time());
 
 					/* Log the action */
-					$this->log->add('admin', $user->data['user_id'], $user->ip, 'LOG_ACP_OS_SETNOW', time());
+					$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_OS_BSD_SETNOW', time());
 
 					/* If the request/action is AJAX */
-					if ($request->is_ajax())
+					if ($this->request->is_ajax())
 					{
 						/* Set up a JSON response */
 						$json_response = new \phpbb\json_response();
@@ -129,20 +129,20 @@ class acp_controller
 						/* Send a JSON response */
 						$json_response->send(array(
 							'MESSAGE_TITLE'	=> $this->language->lang('INFORMATION'),
-							'MESSAGE_TEXT'	=> $this->language->lang('OS_ACP_SETNOW'),
+							'MESSAGE_TEXT'	=> $this->language->lang('ACP_OS_SETNOW'),
 							'REFRESH_DATA'	=> array(
 								'url'	=> '',
-								'time'	=> 3,
+								'time'	=> 2,
 							),
 						));
 					}
 
 					/* Show success message when not using AJAX */
-					trigger_error($this->$language->lang('OS_ACP_SETNOW') . adm_back_link($this->u_action));
+					trigger_error($this->$language->lang('ACP_OS_SETNOW') . adm_back_link($this->u_action));
 				}
 				else
 				{
-					confirm_box(false, $this->language->lang('OS_ACP_SETNOW_CONFIRM'), build_hidden_fields(array(
+					confirm_box(false, $this->language->lang('ACP_OS_SETNOW_CONFIRM'), build_hidden_fields(array(
 						'action'	=> $action))
 					);
 
@@ -158,10 +158,10 @@ class acp_controller
 					$this->config->set('threedi_os_startdate', (int) $this->config['board_startdate']);
 
 					/* Log the action */
-					$this->log->add('admin', $user->data['user_id'], $user->ip, 'LOG_ACP_OS_RESTORE', time());
+					$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_OS_BSD_RESTORED', time());
 
 					/* If the request/action is AJAX */
-					if ($request->is_ajax())
+					if ($this->request->is_ajax())
 					{
 						/* Set up a JSON response */
 						$json_response = new \phpbb\json_response();
@@ -169,20 +169,20 @@ class acp_controller
 						/* Send a JSON response */
 						$json_response->send(array(
 							'MESSAGE_TITLE'	=> $this->language->lang('INFORMATION'),
-							'MESSAGE_TEXT'	=> $this->language->lang('OS_ACP_RESTORE'),
+							'MESSAGE_TEXT'	=> $this->language->lang('ACP_OS_RESTORED'),
 							'REFRESH_DATA'	=> array(
 								'url'	=> '',
-								'time'	=> 3,
+								'time'	=> 2,
 							),
 						));
 					}
 
 					/* Show success message when not using AJAX */
-					trigger_error($this->$language->lang('OS_ACP_RESTORE') . adm_back_link($this->u_action));
+					trigger_error($this->$language->lang('ACP_OS_RESTORED') . adm_back_link($this->u_action));
 				}
 				else
 				{
-					confirm_box(false, $this->language->lang('OS_ACP_RESTORE_CONFIRM'), build_hidden_fields(array(
+					confirm_box(false, $this->language->lang('ACP_OS_RESTORE_CONFIRM'), build_hidden_fields(array(
 						'action'	=> $action))
 					);
 
@@ -199,17 +199,18 @@ class acp_controller
 
 		// Set output variables for display in the template
 		$this->template->assign_vars([
-			'ERROR_MSG'		=> $s_errors ? implode('<br>', $errors) : '',
-			'S_ERROR'		=> $s_errors,
-			'S_OS_GFX'		=> true,
+			'S_OS_GFX'			=> true,
+			'S_ERROR'			=> $s_errors,
 
-			'L_OS_BOARD_START'		=> $os_board_startdate,
+			'ERROR_MSG'			=> $s_errors ? implode('<br>', $errors) : '',
 
-			'OS_STARTDATE'			=> (int) $this->config['threedi_os_startdate'],
+			'L_OS_BOARD_START'	=> $os_board_startdate,
 
-			'U_ACTION_ADD'			=> $this->u_action . '&action=add',
-			'U_ACTION_SETNOW'		=> $this->u_action . '&action=setnow',
-			'U_ACTION_RESTORE'		=> $this->u_action . '&action=restore',
+			'OS_STARTDATE'		=> (int) $this->config['threedi_os_startdate'],
+
+			'U_ACTION_CHANGE'	=> $this->u_action . '&action=change',
+			'U_ACTION_SETNOW'	=> $this->u_action . '&action=setnow',
+			'U_ACTION_RESTORE'	=> $this->u_action . '&action=restore',
 		]);
 	}
 

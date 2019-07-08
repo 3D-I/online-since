@@ -10,31 +10,34 @@
 {% endif %}
 
 <fieldset class="os-acp-outer">
-	<div class="os-acp-rules">{{ lang('ACP_OS') }}</div>
 	<fieldset class="os-acp-middle">
 
 		<fieldset class="os-acp-inner">
-			<legend>{{ lang('OS_ACP_START_DATE') }}</legend>
-			<form id="threedi_os_acp_add" name="threedi_os_acp_add" method="post" action="{{ U_ACTION_ADD }}">
+			<div class="os-acp-rules">{{ lang('ACP_OS_START_DATE_INFO') }}</div>
+			<legend>{{ lang('ACP_OS_START_DATE') }}</legend>
+			<form id="threedi_os_acp_change" name="threedi_os_acp_change" method="post" action="{{ U_ACTION_CHANGE }}">
 				<dl>
-					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_CHANGE_BSD') ~ lang('COLON') }}</label><br>{{ lang('UNIX_TIMESTAMP_EXPLAIN') }}{{ lang('UNIX_TIMESTAMP_WHO') }}<br>{{ lang('ONLINE_SINCE_ACP_CHANGE_BSD_EXPLAIN') }}</dt>
+					<dt>
+						<label for="threedi_os_startdate">{{ lang('ACP_OS_CHANGE_BSD') ~ lang('COLON') }}</label><br>{{ lang('ACP_OS_CHANGE_BSD_EXPLAIN') }}
+					</dt>
 					<dd>
-						<input id="threedi_os_startdate"  class="inputbox autowidth" maxlength="18" name="threedi_os_startdate" type="text" value="{{ OS_STARTDATE }}">
-					</dd>&nbsp;{{ L_OS_BOARD_START }}
+						<input id="threedi_os_startdate"  class="inputbox autowidth" maxlength="18" name="threedi_os_startdate" type="text" value="{{ OS_STARTDATE }}"> {{ L_OS_BOARD_START }}
+						<br><a href="https://www.epochconverter.com" target="_blank" rel="noopener">{{ lang('ACP_OS_CONVERTER') }}</a>
+					</dd>
 				</dl>
 
 				<p class="quick">
-					<input class="button1" name="threedi_os_startdate_addition" value="{{ lang('SUBMIT') }}" type="submit">
+					<input class="button1" name="threedi_os_startdate_change" value="{{ lang('SUBMIT') }}" type="submit">
 				</p>
 				{{ S_FORM_TOKEN }}
 			</form>
 		</fieldset>
 
 		<fieldset class="os-acp-inner">
-			<legend>{{ lang('OS_ACP_NOW_DATE') }}</legend>
+			<legend>{{ lang('ACP_OS_NOW_DATE') }}</legend>
 			<form id="threedi_os_acp_setnow" name="threedi_os_acp_setnow" method="post" action="{{ U_ACTION_SETNOW }}" data-ajax="true" data-refresh="true">
 				<dl>
-					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_START_DATE_RESET') ~ lang('COLON') }}</label><br>{{ lang('ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN') }}</dt>
+					<dt><label for="threedi_os_startdate">{{ lang('ACP_OS_NOW_RESET') ~ lang('COLON') }}</label><br>{{ lang('ACP_OS_NOW_RESET_EXPLAIN') }}</dt>
 					<dd>
 						<input class="button1" id="threedi_os_startdate" name="threedi_os_startdate" value="{{ lang('RUN') }}" type="submit">
 					</dd>
@@ -43,10 +46,10 @@
 		</fieldset>
 
 		<fieldset class="os-acp-inner">
-			<legend>{{ lang('OS_ACP_RESTORE_DATE') }}</legend>
+			<legend>{{ lang('ACP_OS_RESTORE_DATE') }}</legend>
 			<form id="threedi_os_acp_restore" name="threedi_os_acp_restore" method="post" action="{{ U_ACTION_RESTORE }}" data-ajax="true" data-refresh="true">
 				<dl>
-					<dt><label for="threedi_os_startdate">{{ lang('ONLINE_SINCE_ACP_ORIG_BSD') ~ lang('COLON') }}</label><br>{{ lang('ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN') }}</dt>
+					<dt><label for="threedi_os_startdate">{{ lang('ACP_OS_ORIG_BSD') ~ lang('COLON') }}</label><br>{{ lang('ACP_OS_ORIG_BSD_EXPLAIN') }}</dt>
 					<dd>
 						<input class="button1" id="threedi_os_startdate" name="threedi_os_startdate" value="{{ lang('RUN') }}" type="submit">
 					</dd>

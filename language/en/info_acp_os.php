@@ -35,29 +35,36 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'ACP_OS_TITLE'	=> 'Online Since Module',
-	'ACP_OS'		=> 'Online Since Settings',
+	'ACP_OS_TITLE'					=> 'Online Since Module',
+	'ACP_OS'						=> 'Online Since Settings',
 
-	'ONLINE_SINCE_ACP_CHANGE_BSD'				=> 'Change Online Since\'s Board start date',
-	'ONLINE_SINCE_ACP_CHANGE_BSD_EXPLAIN'		=> '<br />I.e.: your Birthday’s date.</br></br><em>Original Board’s startdate will not be not altered in the DB. You can restore it at some point.</em>',
+	// Controller
+	'ACP_OS_CHANGE_SAVED'			=> '<strong>Online Since</strong> BSD manually changed and saved.',
 
-	'ONLINE_SINCE_ACP_ORIG_BSD'					=> 'Restore original Board’s start Date',
-	'ONLINE_SINCE_ACP_ORIG_BSD_EXPLAIN'			=> '<em>Do you want to revert to the origins?</em>',
-	'ONLINE_SINCE_ACP_INVALID_BSD'				=> 'The entered date is not valid.',
+	'ACP_OS_SETNOW_CONFIRM'			=> 'Are you sure you want to set the Board’s Start Date at the present time?',
+	'ACP_OS_SETNOW'					=> 'The Board’s Start Date has been sat at the present time.',
 
-	'ONLINE_SINCE_ACP_START_DATE_RESET'			=> 'Set the Online Since to now()',
-	'ONLINE_SINCE_ACP_START_DATE_RESET_EXPLAIN'	=> 'A fresh new start for your board',
+	'ACP_OS_RESTORE_CONFIRM'		=> 'Are you sure you want to restore the original Board’s Start Date?',
+	'ACP_OS_RESTORED'				=> 'The original Board’s Start Date has been restored.',
 
-	'ONLINESINCE_SAVED'							=> 'Online Since: Your settings have been saved.',
+	// Template
+	'ACP_OS_START_DATE_INFO'		=> 'The Original Board’s Start Date will never be altered in the DB.',
 
-	//'UNIX_TIMESTAMP'							=> ' using an UNIX Timestamp',
-	'UNIX_TIMESTAMP_EXPLAIN'					=> '<em>Insert a valid unix (epoch) timestamp.<br />Only integers (0-9) and minus allowed. Max 18.</em>',
-	'UNIX_TIMESTAMP_WHO'						=> '<br /><em>https://www.epochconverter.com</em>',
+	'ACP_OS_START_DATE'				=> 'Change',
+	'ACP_OS_CHANGE_BSD'				=> 'Change Board’s Start Date',
+	'ACP_OS_CHANGE_BSD_EXPLAIN'		=> '<emInsert a valid unix (epoch) timestamp. Max 18 digits.</em',
+	'ACP_OS_CONVERTER'				=> '<em>Epoch converter</em>',
 
-	'ONLINE_AT'									=> ' at ',
-	'OS_TIMESTAMP_MUST_BE_NUMBERS_ONLY'			=> 'Online Since: Only numbers (integers) allowed<br />Please correctly fill the timestamp field',
+	'ACP_OS_RESTORE_DATE'			=> 'Restore',
+	'ACP_OS_ORIG_BSD'				=> 'Restore original Board’s Start Date',
+	'ACP_OS_ORIG_BSD_EXPLAIN'		=> '<em>Do you want to revert to the original?</em>',
 
-	'COMPARISON_ERROR'							=> 'Online Since: Comparison error',
+	'ACP_OS_NOW_DATE'				=> 'Reset',
+	'ACP_OS_NOW_RESET'				=> 'Reset Board’s Start Date to now',
+	'ACP_OS_NOW_RESET_EXPLAIN'		=> '<em>A fresh new start for your board</em>',
 
-	'LOG_ACP_OS_SETTINGS'		=> '<strong>Online Since settings updated</strong>',
+	// Logs
+	'LOG_ACP_OS_BSD_CHANGED'		=> '<strong>Online Since</strong> BSD manually changed.',
+	'LOG_ACP_OS_BSD_SETNOW'			=> '<strong>Online Since</strong> BSD updated to time().',
+	'LOG_ACP_OS_BSD_RESTORED'		=> '<strong>Online Since</strong> original BSD restored.',
 ));
