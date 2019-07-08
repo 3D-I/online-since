@@ -12,14 +12,27 @@ namespace threedi\os\migrations;
 
 class install_sample_data extends \phpbb\db\migration\migration
 {
+	/**
+	 * Allows you to check if the migration is effectively installed (entirely optional)
+	 *
+	 * @return bool		True if this migration is installed, False if this migration is not installed (checked on install)
+	 * @access public
+	 */
 	public function effectively_installed()
 	{
-		return $this->config->offsetExists('threedi_os_startdate');
+		return isset($this->config['threedi_os_startdate']);
 	}
 
+	/**
+	 * Assign migration file dependencies for this migration.
+	 *
+	 * @return array		Array of migration files
+	 * @access public
+	 * @static
+	 */
 	public static function depends_on()
 	{
-		return array('\phpbb\db\migration\data\v320\v320');
+		return ['\phpbb\db\migration\data\v32x\v327'];
 	}
 
 	/**
@@ -29,19 +42,16 @@ class install_sample_data extends \phpbb\db\migration\migration
 	 */
 	public function update_data()
 	{
-		$orig_board_startdate = (int) $this->config['board_startdate'];
+		$orig_board_startdate = $this->config['board_startdate'];
 
-		return array(
-			// Add new config table settings
-			array('config.add', array('threedi_os_startdate', (int) $orig_board_startdate)),
+		return [
+			['config.add', ['threedi_os_startdate', (int) $orig_board_startdate]],
 
-			// Add new permissions
-			array('permission.add', array('a_new_threedi_os')), // New admin permission
-			array('permission.add', array('u_new_threedi_os')), // New user permission
+			['permission.add', ['a_new_threedi_os']],
+			['permission.add', ['u_new_threedi_os']],
 
-			// Set our new permissions
-			array('permission.permission_set', array('ROLE_ADMIN_FULL', 'a_new_threedi_os')), // Give ROLE_ADMIN_FULL a_new_threedi_os permission
-			array('permission.permission_set', array('REGISTERED', 'u_new_threedi_os', 'group')), // Give REGISTERED group u_new_threedi_os permission
-		);
+			['permission.permission_set', ['ROLE_ADMIN_FULL', 'a_new_threedi_os']],
+			['permission.permission_set', ['REGISTERED', 'u_new_threedi_os', 'group']],
+		];
 	}
 }

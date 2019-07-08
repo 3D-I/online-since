@@ -8,6 +8,9 @@
  *
  */
 
+/**
+* DO NOT CHANGE
+*/
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -18,10 +21,10 @@ if (empty($lang) || !is_array($lang))
 	$lang = [];
 }
 
-// Some characters you may want to copy&paste:
-// ’ » “ ” …
-
+/*
+ * Some characters you may want to copy&paste:
+ * ’ » “ ” …
+ */
 $lang = array_merge($lang, [
-	'ACL_A_NEW_THREEDI_OS'	=> '<strong>OS</strong> - Can administer the Online Since',
-	'ACL_U_NEW_THREEDI_OS'	=> '<strong>OS</strong> - Can view the Online Since',
+	'ERROR_PHPBB_VERSION'	=> 'Minimum phpBB version required is %1$s but less than %2$s',
 ]);

@@ -95,6 +95,18 @@ class acp_controller
 						$errors[] = $this->language->lang('FORM_INVALID');
 					}
 
+					/**
+					 * Valid range:
+					 * February 10, 1653 6:13:21 AM
+					 * to
+					 * November 20, 2286 5:46:39 PM
+					 * Yeah, a bit weird but imagine to use it as a countdown instead ;-)
+					 */
+					if ($os_start < -9999999999 || $os_start > 9999999999)
+					{
+						$errors[] = $this->language->lang('ACP_OS_UNIX_INVALID');
+					}
+
 					// If no errors, process the form data
 					if (empty($errors))
 					{

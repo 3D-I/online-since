@@ -71,8 +71,11 @@ class main_listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Load common language files after user setup
+	 * Load extension language file after user set up.
 	 *
+	 * @event  core.user_setup_after
+	 * @return void
+	 * @access public
 	 */
 	public function onlinesince_load_language()
 	{
@@ -80,23 +83,45 @@ class main_listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add permissions
+	 * Adds OS permissions to my custom category
 	 *
-	 * @param \phpbb\event\data	$event	Event object
+	 * @event  core.permissions
+	 * @param  \phpbb\event\data	$event		The event object
+	 * @return void
+	 * @access public
 	 */
 	public function onlinesince_permissions($event)
 	{
+		$categories = $event['categories'];
 		$permissions = $event['permissions'];
 
-		$permissions['a_new_threedi_os'] = ['lang' => 'ACL_A_NEW_THREEDI_OS', 'cat' => 'misc'];
-		$permissions['u_new_threedi_os'] = ['lang' => 'ACL_U_NEW_THREEDI_OS', 'cat' => 'misc'];
+		if (empty($categories['3Di']))
+		{
+			/* Setting up a custom CAT */
+			$categories['3Di'] = 'ACL_CAT_3DI';
+
+			$event['categories'] = $categories;
+		}
+
+		$perms = [
+			'a_new_threedi_os',
+			'u_new_threedi_os',
+		];
+
+		foreach ($perms as $permission)
+		{
+			$permissions[$permission] = ['lang' => 'ACL_' . utf8_strtoupper($permission), 'cat' => '3Di'];
+		}
 
 		$event['permissions'] = $permissions;
 	}
 
 	/**
+	 * Send OS variables to the template
 	 *
-	 * core.page_footer
+	 * @event  core.page_footer
+	 * @return void
+	 * @access public
 	 */
 	public function onlinesince_display()
 	{
@@ -104,7 +129,7 @@ class main_listener implements EventSubscriberInterface
 		{
 			list($diff_year, $diff_month, $diff_day) = $this->onlinesince();
 
-			/* Plural Rules */
+			/* Plural Rules and cast to INT */
 			$os_year = $this->language->lang('OS_YEAR', (int) $diff_year);
 			$os_month = $this->language->lang('OS_MONTH', (int) $diff_month);
 			$os_day = $this->language->lang('OS_DAY', (int) $diff_day);
@@ -126,7 +151,12 @@ class main_listener implements EventSubscriberInterface
 		}
 	}
 
-
+	/**
+	 * Calculates the time spent in years, months and days taking into account leap years.
+	 *
+	 * @return array		[$diff_year, $diff_month, $diff_day]	Whether or not the extension is enabled for this forum
+	 * @access protected
+	 */
 	protected function onlinesince()
 	{
 		$days_of_month = [
