@@ -1,15 +1,13 @@
 <?php
 /**
-*
-* @package Online Since 1.1.0 [English]
-* @copyright (c) 2005 - 2016 3Di
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-*/
+ *
+ * Online Since. An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2005 - 2019, 3Di, https://www.phpbbstudio.com
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
 
-/**
-* DO NOT CHANGE
-*/
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -17,37 +15,30 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
-// DEVELOPERS PLEASE NOTE
-//
-// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+// Some characters you may want to copy&paste:
+// ’ » “ ” …
 
-$lang = array_merge($lang, array(
-	'ONLINE_START'		=> 'Board start date:',
-	'ONLINE_SINCE'		=> ' Elapsed time',
-	'ONLINE_TITLE'		=> 'Online since ',
-	'ONLINE_AT'			=> ' at ',
+$lang = array_merge($lang, [
+	'ACL_CAT_3DI'	=> '3Di',
 
-	'ONLINE_YEAR'	=> array(
-		1	=> '<strong>%d</strong> Year ',
-		2	=> '<strong>%d</strong> Years ',
-	),
-	'ONLINE_MONTH'	=> array(
-		1	=> '<strong>%d</strong> Month ',
-		2	=> '<strong>%d</strong> Months ',
-	),
-	'ONLINE_DAY'	=> array(
+	'OS_START'		=> 'Board start date',
+	'OS_ELAPSED'	=> 'Elapsed time',
+	'OS_TITLE'		=> 'Online since',
+	'OS_AT'			=> 'at',
+
+	'OS_YEAR'	=> [
+		1	=> '<strong>%d</strong> Year',
+		2	=> '<strong>%d</strong> Years',
+	],
+	'OS_MONTH'	=> [
+		1	=> '<strong>%d</strong> Month',
+		2	=> '<strong>%d</strong> Months',
+	],
+	'OS_DAY'	=> [
 		1	=> '<strong>%d</strong> Day',
 		2	=> '<strong>%d</strong> Days',
-	)
-));
+	]
+]);
