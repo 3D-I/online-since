@@ -10,4 +10,5 @@ Go to "ACP" > "Customise" > "Extensions" and enable the "Online Since" extension
 
 [GPLv2](license.txt)
 
-![GitHub Releases (by Asset)](https://img.shields.io/github/downloads/3D-I/online-since/v2.0.0/threedi_OS_200.zip.svg?color=gree&style=plastic)
+![GitHub Releases (by Asset)](https://img.shields.io/github/downloads/3D-I/online-since/v2.0.1/threedi_ONLINE_SINCE_201.zip.svg?color=gree&style=plastic)
+
