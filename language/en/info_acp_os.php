@@ -39,7 +39,7 @@ $lang = array_merge($lang, [
 
 	'ACP_OS_START_DATE'				=> 'Change',
 	'ACP_OS_CHANGE_BSD'				=> 'Change Board’s Start Date',
-	'ACP_OS_CHANGE_BSD_EXPLAIN'		=> '<em>Insert a valid unix (epoch) timestamp.</em',
+	'ACP_OS_CHANGE_BSD_EXPLAIN'		=> '<em>Insert a valid unix (epoch) timestamp.</em>',
 	'ACP_OS_CONVERTER'				=> '<em>Epoch converter</em>',
 
 	'ACP_OS_RESTORE_DATE'			=> 'Restore',

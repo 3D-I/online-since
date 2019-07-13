@@ -154,7 +154,7 @@ class main_listener implements EventSubscriberInterface
 	/**
 	 * Calculates the time spent in years, months and days taking into account leap years.
 	 *
-	 * @return array		[$diff_year, $diff_month, $diff_day]	Whether or not the extension is enabled for this forum
+	 * @return array		[$diff_year, $diff_month, $diff_day]
 	 * @access protected
 	 */
 	protected function onlinesince()
@@ -174,6 +174,7 @@ class main_listener implements EventSubscriberInterface
 		$diff_month = $month2 - $month1;
 		$diff_day = $day2 - $day1;
 
+		/* Leap years have got to be calculated */
 		$is_leap = (($year2 % 4) == 0 && ($year2 % 100) != 0 || ($year2 % 400) == 0) ? 1 : 0;
 
 		/**

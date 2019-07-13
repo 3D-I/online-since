@@ -152,7 +152,7 @@ class acp_controller
 					}
 
 					/* Show success message when not using AJAX */
-					trigger_error($this->$language->lang('ACP_OS_SETNOW') . adm_back_link($this->u_action));
+					trigger_error($this->language->lang('ACP_OS_SETNOW') . adm_back_link($this->u_action));
 				}
 				else
 				{
@@ -196,7 +196,7 @@ class acp_controller
 					}
 
 					/* Show success message when not using AJAX */
-					trigger_error($this->$language->lang('ACP_OS_RESTORED') . adm_back_link($this->u_action));
+					trigger_error($this->language->lang('ACP_OS_RESTORED') . adm_back_link($this->u_action));
 				}
 				else
 				{
